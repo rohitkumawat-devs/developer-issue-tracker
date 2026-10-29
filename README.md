@@ -294,16 +294,16 @@ The generated ID depends on the database.
 
 ## Future Enhancements
 
-Planned improvements include:
+Planned improvements for the project:
 
-- Interactive dashboard with issue statistics.
-- Kanban board for visual workflow management.
-- Search, filtering, sorting, and pagination.
-- Authentication and authorization.
-- User and project management.
-- Issue assignment and comments.
-- Automated unit and integration testing.
-- Production deployment and CI/CD.
+- [ ] Interactive dashboard with issue statistics
+- [ ] Kanban board for visual workflow management
+- [ ] Search, filtering, sorting, and pagination
+- [ ] Authentication and authorization
+- [ ] User and project management
+- [ ] Issue assignment and comments
+- [ ] Automated unit and integration testing
+- [ ] Production deployment and CI/CD
 
 ---
 
