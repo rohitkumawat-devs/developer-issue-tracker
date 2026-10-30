@@ -1,122 +1,68 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState } from "react";
+import LandingPage from "./pages/LandingPage";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function DashboardPreview({ onBack }) {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
+    <main className="min-h-screen bg-[#080808] px-6 py-10 text-white sm:px-12">
+      <div className="mx-auto max-w-6xl">
         <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
+          onClick={onBack}
+          className="mb-12 text-sm text-white/60 transition hover:text-white"
         >
-          Count is {count}
+          ← Back to introduction
         </button>
-      </section>
 
-      <div className="ticks"></div>
+        <p className="text-xs uppercase tracking-[0.4em] text-white/40">
+          IssueFlow workspace
+        </p>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+        <h1 className="mt-4 text-4xl font-light tracking-tight sm:text-6xl">
+          Your team's work.
+          <br />
+          <span className="text-white/40">In focus.</span>
+        </h1>
+
+        <p className="mt-5 max-w-xl text-sm leading-7 text-white/50">
+          A central workspace to create issues, manage priorities,
+          and track progress across your development team.
+        </p>
+
+        <div className="mt-12 grid gap-4 sm:grid-cols-3">
+          {[
+            { label: "Open issues", value: "—" },
+            { label: "In progress", value: "—" },
+            { label: "Resolved", value: "—" },
+          ].map((item) => (
+            <article
+              key={item.label}
+              className="rounded-xl border border-white/10 bg-white/[0.02] p-6"
+            >
+              <p className="text-sm text-white/50">{item.label}</p>
+
+              <p className="mt-5 text-4xl font-light">{item.value}</p>
+            </article>
+          ))}
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+        <p className="mt-8 text-xs text-white/30">
+          Dashboard preview — live issue data has not been connected yet.
+        </p>
+      </div>
+    </main>
+  );
 }
 
-export default App
+export default function App() {
+  const [showDashboard, setShowDashboard] = useState(false);
+
+  if (showDashboard) {
+    return <DashboardPreview onBack={() => setShowDashboard(false)} />;
+  }
+
+  return (
+    <LandingPage
+      onExplore={() => setShowDashboard(true)}
+      onSkip={() => setShowDashboard(true)}
+    />
+  );
+}

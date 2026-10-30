@@ -1,0 +1,76 @@
+/* Outlined FLOW text in the ISSUEFLOW heading */
+.issueflow-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  mask-image: linear-gradient(to right, black, transparent);
+  -webkit-mask-image: linear-gradient(to right, black, transparent);
+}
+
+/* Entrance animation for the complete hero content */
+.intro-content {
+  animation: intro-reveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes intro-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Ghost-typing text */
+.ghost-typing {
+  color: rgba(255, 255, 255, 0.62);
+  font-family: inherit;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+/* Blinking cursor */
+.ghost-typing-cursor {
+  display: inline-block;
+  margin-left: 3px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 300;
+  animation: ghost-cursor-blink 0.85s step-end infinite;
+}
+
+@keyframes ghost-cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .intro-content {
+    animation: none;
+  }
+
+  .ghost-typing-cursor {
+    animation: none;
+  }
+}
+
+/* Smaller screens */
+@media (max-width: 640px) {
+  .ghost-typing {
+    max-width: 100%;
+    padding-inline: 8px;
+    font-size: 13px;
+    letter-spacing: 0;
+  }
+
+  .issueflow-outline {
+    -webkit-text-stroke-width: 0.8px;
+  }
+}
