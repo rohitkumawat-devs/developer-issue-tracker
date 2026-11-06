@@ -48,3 +48,43 @@ button {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* IssueFlow dashboard layout */
+
+.if-dashboard {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #f5f5f5;
+}
+
+.if-dashboard-main {
+  min-height: 100vh;
+  margin-left: 250px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.if-dashboard-eyebrow {
+  color: #777;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.if-dashboard-main h1 {
+  margin-top: 24px;
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.if-dashboard-description {
+  color: #888;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .if-dashboard-main {
+    margin-left: 220px;
+    padding: 24px 18px;
+  }
+}

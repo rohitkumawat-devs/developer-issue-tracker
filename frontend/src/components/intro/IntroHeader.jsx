@@ -1,4 +1,17 @@
+import { useNavigate } from "react-router-dom";
+
 export default function IntroHeader({ onSkip }) {
+
+const navigate = useNavigate();
+
+  const handleSkip = () => {
+    if (onSkip) {
+      onSkip();
+    } else {
+      navigate("/dashboard");
+    }
+  };
+
   return (
     <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-6 sm:px-10 sm:py-8">
       {/* IssueFlow logo — top-left */}
@@ -11,7 +24,7 @@ export default function IntroHeader({ onSkip }) {
       {/* Existing Skip Intro button — top-right */}
       <button
         type="button"
-        onClick={onSkip}
+        onClick={handleSkip}
         className="group flex items-center gap-3 text-sm text-white/70 transition-colors duration-300 hover:text-white"
         aria-label="Skip introduction"
       >

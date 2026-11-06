@@ -1,7 +1,19 @@
+import { useNavigate } from "react-router-dom";
+
 export default function ExploreButton({ onClick }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    } else {
+      navigate("/dashboard");
+    }
+  };
+
   return (
     <button
-      onClick={onClick}
+      onClick={handleClick}
       className="
         group relative inline-flex items-center justify-center gap-8
         overflow-hidden rounded-full border border-white/30
